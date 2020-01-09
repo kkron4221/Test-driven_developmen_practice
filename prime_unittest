@@ -1,0 +1,26 @@
+import unittest
+
+def prime_judge(num):
+    judge_num = num / 2
+    judge_num = int(judge_num)
+    while judge_num > 1:
+        if num % judge_num == 0:
+            return False
+        judge_num = judge_num - 1
+    return True
+
+class Test_prime(unittest.TestCase):
+    def test_correct(self):
+        num = 13
+        ans = True
+        actual = prime_judge(num)
+        self.assertEqual(ans, actual)
+
+    def test_wrong(self):
+        num = 8
+        ans = False
+        actual = prime_judge(num)
+        self.assertEqual(ans, actual)
+        
+if __name__ == "__main__":
+    unittest.main()
